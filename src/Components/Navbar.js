@@ -12,20 +12,28 @@ export default function Navbar(props) {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
-          {/* <li className="nav-item">
-            <Link className="nav-link active" aria-current="page" to = "/">Home</Link>
-          </li> */}
-              <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href = "#">Home</a>
+          <li className="nav-item">
+            <Link className="nav-link" aria-current="page" to = "/">Home</Link>
           </li>
-
-          {/* <li className="nav-item">
-            <Link className="nav-link" to = "/about">About us</Link>
+              {/* <li className="nav-item">
+            <a className="nav-link active" aria-current="page" href = "#">Home</a>
           </li> */}
+
+          <li className="nav-item">
+            <Link className="nav-link" to = "/about">About us</Link>
+          </li>
         </ul>
       </div>
+
+      {/* <div className="d-flex">
+        <div className="bg-primary rounded mx-2" onClick={()=>{props.toggleMode('primary')}} style={{height: '30px', width: '30px', cursor:'pointer' }}></div>
+        <div className="bg-success rounded mx-2" onClick={()=>{props.toggleMode('success')}} style={{height: '30px', width: '30px', cursor:'pointer' }}></div>
+        <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{height: '30px', width: '30px', cursor:'pointer' }}></div>
+        <div className="bg-warning rounded mx-2" onClick={()=>{props.toggleMode('warning')}} style={{height: '30px', width: '30px', cursor:'pointer' }}></div>
+      </div> */}
+
       <div className={`form-check form-switch text-${props.mode==='light'?'dark': 'light'  }`}>
-  <input className="form-check-input" onClick ={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+  <input className="form-check-input" onClick ={()=>{props.toggleMode(null)}} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
   <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
 </div>
     </div>
@@ -33,7 +41,7 @@ export default function Navbar(props) {
 
   )
 }
-
+        
 // PropTypes
 Navbar.proptype = {title:PropTypes.string,
                     about:PropTypes.string  }
